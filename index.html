@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AA Maintenance Services, LLC | Demolition, Cleaning & Property Maintenance | Akron, OH</title>
+  <meta name="description" content="AA Maintenance Services, LLC — demolition, construction, industrial & commercial cleaning, clean-outs, hauling, equipment rentals and property maintenance in Akron, Ohio. Serving Northeast Ohio since 2008." />
+  <meta name="theme-color" content="#59aed4" />
+  <link rel="icon" href="assets/logo-clear.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #59aed4;
+      --brand-mid: #3aa3d0;
+      --brand-deep: #1e86b5;
+      --brand-soft: #eaf7fc;
+      --ink: #0b0d10;
+      --bg: #ffffff;
+      --bg-2: #f3f8fb;
+      --text: #14181c;
+      --muted: #536068;
+      --line: #cfe3ee;
+      --ok: #2f8f62;
+      --shadow: 0 18px 40px rgba(20, 70, 100, 0.10);
+      --max: 1160px;
+      --gloss: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 42%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Outfit, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font-family: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .accent { color: var(--brand-deep); font-weight: 700; }
+    .eyebrow {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      color: var(--brand-deep);
+      font-weight: 700;
+    }
+    h1, h2, h3 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); margin: 0.3em 0 0.5em; }
+    .muted { color: var(--muted); }
+    .btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border: 1px solid #000;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 38%),
+        linear-gradient(180deg, #3a3d42 0%, #111318 48%, #000 100%);
+      color: #fff;
+      padding: 0.95rem 1.45rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border-radius: 999px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.38),
+        inset 0 -10px 18px rgba(0,0,0,.45),
+        0 10px 24px rgba(0,0,0,.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px 8% auto;
+      height: 46%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,0));
+      pointer-events: none;
+      z-index: 1;
+    }
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -55%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.38), transparent);
+      transform: skewX(-22deg);
+      animation: shine 3.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.45),
+        inset 0 -10px 18px rgba(0,0,0,.5),
+        0 14px 28px rgba(0,0,0,.28);
+    }
+    .btn.ghost {
+      background:
+        linear-gradient(180deg, #fff 0%, #f4f8fb 100%);
+      color: var(--ink);
+      border: 1px solid #c5d5de;
+      box-shadow:
+        inset 0 1px 0 #fff,
+        0 8px 18px rgba(20, 70, 100, 0.08);
+    }
+    .btn.ghost::before { background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,0)); }
+    .btn.ghost:hover { background: #fff; }
+    @keyframes shine {
+      0%, 35% { left: -55%; }
+      65%, 100% { left: 130%; }
+    }
+    .skip { position: absolute; left: -999px; top: 8px; }
+    .skip:focus { left: 8px; z-index: 80; background: var(--ink); color: #fff; padding: 8px 12px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(89, 174, 212, 0.28);
+      box-shadow: 0 8px 24px rgba(30, 90, 130, 0.06);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      gap: 16px;
+    }
+    .brand img {
+      height: 64px;
+      width: auto;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.35rem;
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--brand-deep); }
+    .nav-cta { display: flex; gap: 10px; align-items: center; }
+    .menu-btn {
+      display: none;
+      background: linear-gradient(180deg, #fff, #f3f7fa);
+      border: 1px solid var(--line);
+      color: var(--text);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 #fff;
+    }
+
+    .hero {
+      padding: 64px 0 80px;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(89,174,212,.5), transparent 32%),
+        radial-gradient(circle at 8% 92%, rgba(30,134,181,.18), transparent 28%),
+        linear-gradient(180deg, #d7f0fa 0%, #ffffff 58%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 3.6rem);
+      max-width: 14ch;
+      margin: 0.25em 0 0.4em;
+      background: linear-gradient(180deg, #1a2228 0%, #0b0d10 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .hero p.lead {
+      max-width: 38rem;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .hero-meta div {
+      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(244,250,253,.9));
+      border: 1px solid rgba(89,174,212,.35);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: inset 0 1px 0 #fff, 0 10px 24px rgba(30, 90, 130, 0.08);
+    }
+    .hero-meta b { display: block; font-size: 1rem; }
+    .hero-meta span { color: var(--muted); font-size: 0.82rem; }
+    .hero-photo {
+      position: relative;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 24px 50px rgba(16, 50, 80, 0.22);
+    }
+    .hero-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.28), transparent 34%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 18px -16px -16px 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #89d0ee, #59aed4 40%, #1e86b5);
+      z-index: -1;
+    }
+
+    .strip {
+      background: linear-gradient(90deg, #1e86b5 0%, #59aed4 50%, #2b9fd0 100%);
+      padding: 16px 0;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(0,0,0,.12);
+    }
+    .strip-track {
+      display: flex;
+      gap: 42px;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+      color: #fff;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    section { padding: 88px 0; }
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .photo-frame { position: relative; }
+    .photo-frame img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(20, 70, 100, 0.12);
+    }
+    .photo-frame::after {
+      content: "";
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #89d0ee, #59aed4 45%, #1e86b5);
+      z-index: -1;
+    }
+    .checklist { margin-top: 1.3rem; display: grid; gap: 10px; color: var(--muted); }
+    .checklist li { list-style: none; padding-left: 1.4rem; position: relative; }
+    .checklist li::before {
+      content: "";
+      width: 8px; height: 8px;
+      background: var(--brand);
+      border-radius: 50%;
+      position: absolute;
+      left: 0; top: 0.55em;
+    }
+
+    .services { background: var(--bg-2); }
+    .grid-3, .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .card {
+      background: linear-gradient(180deg, #ffffff 0%, #f4fbfe 100%);
+      border: 1px solid rgba(89,174,212,.32);
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 100%;
+      box-shadow: inset 0 1px 0 #fff, 0 14px 30px rgba(20, 70, 100, 0.08);
+    }
+    .card img { height: 180px; width: 100%; object-fit: cover; }
+    .card-body { padding: 22px; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags span {
+      background: linear-gradient(180deg, #fff, #dff3fb);
+      color: var(--brand-deep);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(89,174,212,.35);
+    }
+
+    .why-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; }
+    .stat-box {
+      border: 1px solid rgba(89,174,212,.32);
+      background: linear-gradient(180deg, #fff, #eaf7fc);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 14px;
+      box-shadow: inset 0 1px 0 #fff;
+    }
+    .stat-box b {
+      display: block;
+      font-size: 2.4rem;
+      color: var(--brand-deep);
+      line-height: 1;
+    }
+    .feature { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .feature h3 { font-size: 1.2rem; margin-bottom: 6px; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .step {
+      padding: 24px 20px;
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(90deg, #89d0ee, #59aed4, #1e86b5) 1;
+      background: linear-gradient(180deg, #fff, #eef8fc);
+      border-radius: 0 0 12px 12px;
+      box-shadow: inset 0 1px 0 #fff;
+    }
+    .step em {
+      font-style: normal;
+      color: var(--brand-deep);
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .work { background: var(--bg-2); }
+    .fb-wrap {
+      background: #fff;
+      min-height: 620px;
+      display: grid;
+      place-items: start center;
+      padding: 8px;
+      border: 1px solid rgba(89,174,212,.32);
+      border-radius: 16px;
+      box-shadow: inset 0 1px 0 #fff, 0 14px 30px rgba(20, 70, 100, 0.08);
+    }
+    .fb-wrap iframe { width: 100%; max-width: 500px; }
+    .fb-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+    .fb-tabs button {
+      background: linear-gradient(180deg, #fff, #f3f8fb);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .fb-tabs button.active {
+      color: #fff;
+      background: linear-gradient(180deg, #3a3d42, #000);
+      border-color: #000;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.28);
+    }
+
+    .dash {
+      background: linear-gradient(180deg, #fff, #f3fbfe);
+      border: 1px solid rgba(89,174,212,.32);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: inset 0 1px 0 #fff, var(--shadow);
+    }
+    .dash-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .pill {
+      background: var(--bg-2);
+      padding: 16px;
+      border-radius: 10px;
+    }
+    .pill b { display: block; font-size: 1.5rem; color: var(--brand-deep); }
+    .row-list { margin-top: 16px; }
+    .row-list div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .status { color: var(--ok); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+
+    .quote {
+      padding: 24px;
+      border-left: 4px solid transparent;
+      border-image: linear-gradient(180deg, #89d0ee, #1e86b5) 1;
+      background: linear-gradient(180deg, #fff, #eef8fc);
+      border-radius: 0 12px 12px 0;
+      box-shadow: inset 0 1px 0 #fff;
+    }
+    .quote p { font-size: 1.15rem; line-height: 1.45; margin-bottom: 10px; }
+
+    .contact { background: var(--bg-2); }
+    form, .contact-side { display: grid; gap: 12px; }
+    form {
+      background: linear-gradient(180deg, #fff, #f6fbfe);
+      border: 1px solid rgba(89,174,212,.32);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: inset 0 1px 0 #fff, var(--shadow);
+    }
+    label { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    input, select, textarea {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 13px 14px;
+      border-radius: 8px;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+    textarea { min-height: 130px; resize: vertical; }
+    .map {
+      margin-top: 14px;
+      height: 220px;
+      border: 0;
+      width: 100%;
+      border-radius: 12px;
+    }
+    .form-note {
+      display: none;
+      padding: 12px 14px;
+      border: 1px solid var(--ok);
+      color: var(--ok);
+      font-size: 0.92rem;
+      border-radius: 8px;
+    }
+    .form-note.show { display: block; }
+
+    footer {
+      padding: 40px 0 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: #fff;
+    }
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+    .foot-logo { height: 86px; width: auto; margin-bottom: 10px; }
+    footer a:hover { color: var(--brand-deep); }
+    .copy {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .grid-3, .steps, .split, .why-grid, .hero-grid, .foot-grid { grid-template-columns: 1fr 1fr; }
+      nav ul, .nav-cta .ghost { display: none; }
+      .menu-btn { display: grid; place-items: center; }
+      nav.open ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 18px 24px 24px;
+        border-bottom: 1px solid var(--line);
+      }
+      .photo-frame img, .hero-photo img { height: 340px; }
+    }
+    @media (max-width: 680px) {
+      .grid-3, .grid-2, .steps, .split, .why-grid, .hero-grid, .foot-grid, .pills, .hero-meta { grid-template-columns: 1fr; }
+      .brand img { height: 52px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .strip-track, .btn::after { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="AA Maintenance Services home">
+        <img src="assets/logo-clear.png" alt="AA Maintenance Services LLC" />
+      </a>
+      <nav id="site-nav">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Job sites</a></li>
+          <li><a href="#hub">Business hub</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn ghost" href="tel:+13307859935">330-785-9935</a>
+        <a class="btn" href="#contact">Free estimate</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Demolition · Property maintenance · Cleaning · Hauling</p>
+          <h1>Built for the job. Ready when you are.</h1>
+          <p class="lead">Professional demolition, construction, industrial &amp; commercial cleaning, clean-outs, hauling and equipment rentals for Akron and Northeast Ohio — from first call to a finished site.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Request a free estimate</a>
+            <a class="btn ghost" href="https://www.facebook.com/aamaintenanceservices/" target="_blank" rel="noopener">See work on Facebook</a>
+          </div>
+          <div class="hero-meta">
+            <div><b>Since 2008</b><span>Serving Akron locally</span></div>
+            <div><b>Mon–Fri, 7am–4pm</b><span>Estimates on your schedule</span></div>
+            <div><b>814 Tryon Ave</b><span>Akron, OH 44310</span></div>
+            <div><b>330-785-9935</b><span>Call or request online</span></div>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80" alt="Crew working a maintenance and construction job site" />
+        </div>
+      </div>
+    </section>
+
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        <span>Demolition &amp; construction</span>
+        <span>Industrial &amp; commercial cleaning</span>
+        <span>Heavy equipment rentals</span>
+        <span>Dumpster rentals</span>
+        <span>Clean-outs &amp; hauling</span>
+        <span>Machine maintenance</span>
+        <span>Property maintenance</span>
+        <span>Demolition &amp; construction</span>
+        <span>Industrial &amp; commercial cleaning</span>
+        <span>Heavy equipment rentals</span>
+        <span>Dumpster rentals</span>
+        <span>Clean-outs &amp; hauling</span>
+        <span>Machine maintenance</span>
+        <span>Property maintenance</span>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap split">
+        <div class="photo-frame">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80" alt="Construction crew working a job site" />
+        </div>
+        <div>
+          <p class="eyebrow">One company. Multiple services.</p>
+          <h2>One less thing to worry about.</h2>
+          <p class="muted">When a property needs to be cleared, cleaned, demolished or prepared for what comes next, AA Maintenance Services, LLC handles the work under one roof — so you are not coordinating a stack of separate contractors.</p>
+          <ul class="checklist">
+            <li>Residential, commercial and industrial work</li>
+            <li>Crews ready for demolition, cleaning, hauling and site support</li>
+            <li>Equipment and dumpster rentals when a project needs more capacity</li>
+            <li>Local and responsive from our Akron yard on Tryon Avenue</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <p class="eyebrow">What we do</p>
+        <h2>Services built around the property, not a single trade.</h2>
+        <div class="grid-3" style="margin-top: 36px;">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=1200&q=80" alt="Demolition and debris on a cleared site" />
+            <div class="card-body">
+              <h3>Demolition &amp; construction</h3>
+              <p>Structures, garages, tear-downs and site preparation — completed efficiently so the property is ready for the next stage.</p>
+              <div class="tags"><span>Tear-downs</span><span>Site clearing</span><span>Debris removal</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Commercial cleaning in a large facility" />
+            <div class="card-body">
+              <h3>Industrial &amp; commercial cleaning</h3>
+              <p>Offices, warehouses, facilities and industrial spaces — including specialized furnace and post-construction cleaning support.</p>
+              <div class="tags"><span>Facilities</span><span>Post-construction</span><span>Furnace cleaning</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80" alt="Property clean-out and hauling" />
+            <div class="card-body">
+              <h3>Clean-outs &amp; hauling</h3>
+              <p>Clear the space. We handle property clean-outs, junk, debris and post-demolition cleanup so the job can move forward.</p>
+              <div class="tags"><span>Clean-outs</span><span>Hauling</span><span>Junk removal</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=80" alt="Heavy equipment on a work site" />
+            <div class="card-body">
+              <h3>Equipment &amp; dumpster rentals</h3>
+              <p>Need capacity on a project? Ask about heavy equipment and dumpster rental options for residential and commercial jobs.</p>
+              <div class="tags"><span>Dumpsters</span><span>Heavy equipment</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Property maintenance on a commercial building" />
+            <div class="card-body">
+              <h3>Property maintenance</h3>
+              <p>Reliable upkeep and hands-on site support for properties that need consistent attention — not a one-off visit.</p>
+              <div class="tags"><span>Upkeep</span><span>Site support</span><span>General maintenance</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Machine and equipment maintenance" />
+            <div class="card-body">
+              <h3>Machine maintenance</h3>
+              <p>Equipment downtime slows the whole operation. We help keep machines ready so crews can stay on the job.</p>
+              <div class="tags"><span>Equipment care</span><span>Service support</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap why-grid">
+        <div>
+          <p class="eyebrow">Why AA Maintenance Services</p>
+          <h2>Experience that shows up on the job.</h2>
+          <div class="stat-box">
+            <b>2008</b>
+            <span class="muted">Business started in Akron — still operating from 814 Tryon Avenue.</span>
+          </div>
+          <div class="stat-box">
+            <b>5.0</b>
+            <span class="muted">Customers describe the work as on-time, detailed and professional.</span>
+          </div>
+        </div>
+        <div>
+          <article class="feature">
+            <h3>One company for multiple needs</h3>
+            <p class="muted">Demolition, cleaning, hauling, rentals and maintenance without juggling a different vendor for every piece of the project.</p>
+          </article>
+          <article class="feature">
+            <h3>Practical, professional service</h3>
+            <p class="muted">Clear scope, straightforward process, and a clean result. Reviewers note the team explains the job without unnecessary extras.</p>
+          </article>
+          <article class="feature">
+            <h3>Built around your project</h3>
+            <p class="muted">Every property is different. Tell us what needs to be done and we will help determine the right service approach.</p>
+          </article>
+          <article class="feature">
+            <h3>Local &amp; responsive</h3>
+            <p class="muted">Based in Akron and serving Summit County, Cleveland, Canton and surrounding Northeast Ohio communities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" style="padding-top: 0;">
+      <div class="wrap">
+        <p class="eyebrow">From first call to finished job</p>
+        <h2>A simple process.</h2>
+        <div class="steps" style="margin-top: 28px;">
+          <article class="step"><em>01</em><h3>Tell us what you need</h3><p class="muted">Share the property, project or service requirement.</p></article>
+          <article class="step"><em>02</em><h3>Get your estimate</h3><p class="muted">We discuss scope and provide an estimate based on the work.</p></article>
+          <article class="step"><em>03</em><h3>Schedule the work</h3><p class="muted">Once you are ready, we coordinate the next steps with the crew.</p></article>
+          <article class="step"><em>04</em><h3>Get the job done</h3><p class="muted">The team works the agreed scope and moves the project to completion.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="wrap grid-2">
+        <div>
+          <p class="eyebrow">From the job site</p>
+          <h2>Real work, from the company page.</h2>
+          <p class="muted">Photos and video are pulled live from <a class="accent" href="https://www.facebook.com/aamaintenanceservices/" target="_blank" rel="noopener">facebook.com/aamaintenanceservices</a> so this page always shows actual company posts — not stock placeholders for the feed.</p>
+          <p class="muted" style="margin-top: 14px;">Watch recent clips, browse photos, and follow the same page customers already use to find AA Maintenance Services.</p>
+          <div class="hero-actions" style="margin-top: 24px;">
+            <a class="btn" href="https://www.facebook.com/aamaintenanceservices/" target="_blank" rel="noopener">Open Facebook page</a>
+            <a class="btn ghost" href="https://www.bbb.org/us/oh/akron/profile/property-maintenance/a-a-maintenance-services-llc-0272-90025486" target="_blank" rel="noopener">BBB profile</a>
+          </div>
+          <blockquote class="quote" style="margin-top: 28px;">
+            <p>“Quality work and very professional… If you want on-time and professional work done, this is the company to hire.”</p>
+            <span class="muted">Jenise S. · Columbus, OH</span>
+          </blockquote>
+        </div>
+        <div>
+          <div class="fb-tabs" role="tablist">
+            <button type="button" class="active" data-tab="timeline">Posts &amp; video</button>
+            <button type="button" data-tab="photos">Photos</button>
+          </div>
+          <div class="fb-wrap">
+            <iframe
+              id="fb-frame"
+              title="AA Maintenance Services Facebook photos and videos"
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faamaintenanceservices&amp;tabs=timeline&amp;width=500&amp;height=640&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;locale=en_US"
+              width="500"
+              height="640"
+              style="border:none;overflow:hidden"
+              scrolling="no"
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hub" id="hub">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">Built for how you actually run the company</p>
+          <h2>More than a brochure — a better way to manage the business.</h2>
+          <p class="muted">You asked for a website that can help run the company: customer requests, documents, and a clean path into payroll. This concept is designed so the public site and the back office work together — estimates in, jobs scheduled, crew hours captured, payroll-ready.</p>
+          <ul class="checklist">
+            <li>Customer estimate requests land in one place</li>
+            <li>Job and crew information stay organized</li>
+            <li>Payroll connects to Gusto, QuickBooks or ADP — not a homemade pay calculator</li>
+            <li>Ongoing website care after launch, not a one-time handoff</li>
+          </ul>
+          <a class="btn" href="#contact" style="margin-top: 22px; width: fit-content;">Talk about the business system</a>
+        </div>
+        <div class="dash" aria-hidden="true">
+          <div class="dash-top">
+            <strong>Operations hub</strong>
+            <span class="status">Live concept</span>
+          </div>
+          <div class="pills">
+            <div class="pill"><span class="muted">Open estimates</span><b>7</b></div>
+            <div class="pill"><span class="muted">Jobs this week</span><b>12</b></div>
+            <div class="pill"><span class="muted">Crew clocked in</span><b>14</b></div>
+            <div class="pill"><span class="muted">Payroll</span><b>Ready</b></div>
+          </div>
+          <div class="row-list">
+            <div><span>Tryon Ave clean-out</span><span>Scheduled</span></div>
+            <div><span>Commercial cleaning · warehouse</span><span>In progress</span></div>
+            <div><span>Dumpster drop · Canton</span><span>Quoted</span></div>
+            <div><span>Bi-weekly payroll export</span><span>QuickBooks</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap grid-2">
+        <div class="contact-side">
+          <p class="eyebrow">Ready to get started</p>
+          <h2>Tell us what you need. We’ll take it from there.</h2>
+          <p class="muted">Demolition, property clean-out, hauling, maintenance, cleaning or equipment rental — request an estimate or call the office.</p>
+          <p><strong>AA Maintenance Services, LLC</strong><br />814 Tryon Ave, Akron, OH 44310</p>
+          <p>
+            <a class="accent" href="tel:+13307859935">330-785-9935</a><br />
+            <a class="accent" href="tel:+13307859936">330-785-9936</a><br />
+            <a class="accent" href="mailto:aamaintenance79@att.net">aamaintenance79@att.net</a>
+          </p>
+          <p class="muted">Monday–Friday · 7:00am–4:00pm EST<br />Owned by Arlander Ables, Executive Manager</p>
+          <iframe class="map" title="Map of 814 Tryon Ave, Akron, OH" src="https://maps.google.com/maps?q=814%20Tryon%20Ave%2C%20Akron%2C%20OH%2044310&amp;z=15&amp;output=embed" loading="lazy"></iframe>
+        </div>
+        <form id="estimate-form">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required autocomplete="name" />
+          </div>
+          <div class="grid-2">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+          </div>
+          <div>
+            <label for="service">Service needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Demolition &amp; construction</option>
+              <option>Industrial &amp; commercial cleaning</option>
+              <option>Clean-outs &amp; hauling</option>
+              <option>Equipment or dumpster rental</option>
+              <option>Property maintenance</option>
+              <option>Machine maintenance</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" required placeholder="Property address, timeline, and what needs to be done."></textarea>
+          </div>
+          <button class="btn" type="submit">Request a free estimate</button>
+          <p class="form-note" id="form-note">Thank you. This demo opens your email app so the request can be sent to the office.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <img class="foot-logo" src="assets/logo-clear.png" alt="AA Maintenance Services LLC" />
+          <p>Demolition · Property maintenance · Equipment &amp; dumpster rentals · Clean-outs &amp; hauling · Industrial &amp; commercial cleaning</p>
+        </div>
+        <div>
+          <strong style="color:var(--text)">Visit</strong>
+          <p>814 Tryon Ave<br />Akron, OH 44310<br /><a href="https://www.facebook.com/aamaintenanceservices/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.bbb.org/us/oh/akron/profile/property-maintenance/a-a-maintenance-services-llc-0272-90025486" target="_blank" rel="noopener">BBB</a></p>
+        </div>
+        <div>
+          <strong style="color:var(--text)">Service area</strong>
+          <p>Akron · Summit County · Cleveland · Canton · and surrounding Northeast Ohio communities</p>
+        </div>
+      </div>
+      <div class="copy">
+        <span>© 2026 AA Maintenance Services, LLC. All rights reserved.</span>
+        <span>Professional · Reliable · Proven results</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("site-nav");
+    document.getElementById("menu-btn").addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    const fbFrame = document.getElementById("fb-frame");
+    document.querySelectorAll(".fb-tabs button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".fb-tabs button").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        const tab = button.getAttribute("data-tab");
+        fbFrame.src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faamaintenanceservices&tabs=" +
+          tab + "&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&locale=en_US";
+      });
+    });
+
+    const form = document.getElementById("estimate-form");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const body = [
+        "Name: " + data.get("name"),
+        "Phone: " + data.get("phone"),
+        "Email: " + data.get("email"),
+        "Service: " + data.get("service"),
+        "",
+        data.get("message")
+      ].join("\n");
+      const mailto = "mailto:aamaintenance79@att.net?subject=" +
+        encodeURIComponent("Estimate request — " + data.get("service")) +
+        "&body=" + encodeURIComponent(body);
+      document.getElementById("form-note").classList.add("show");
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
